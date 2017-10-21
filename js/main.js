@@ -19,7 +19,9 @@ var markers=[];
 
       infoWindow = new google.maps.InfoWindow();
 
-
+      google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
+        document.getElementById("splash").style.opacity = 0;
+      });
 
        service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request,callback);
